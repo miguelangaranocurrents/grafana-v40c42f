@@ -55,9 +55,11 @@ export function QueryVariableEditor({ variable, onRunQuery }: QueryVariableEdito
 
   const onRegExChange = (event: React.FormEvent<HTMLTextAreaElement>) => {
     variable.setState({ regex: event.currentTarget.value });
+    onRunQuery();
   };
   const onRegexApplyToChange = (event: VariableRegexApplyTo) => {
     variable.setState({ regexApplyTo: event });
+    onRunQuery();
   };
   const onSortChange = (sort: SelectableValue<VariableSort>) => {
     variable.setState({ sort: sort.value });
@@ -93,13 +95,13 @@ export function QueryVariableEditor({ variable, onRunQuery }: QueryVariableEdito
   };
 
   const onStaticOptionsChange = (staticOptions: StaticOptionsType) => {
-    onRunQuery();
     variable.setState({ staticOptions });
+    onRunQuery();
   };
 
   const onStaticOptionsOrderChange = (staticOptionsOrder: StaticOptionsOrderType) => {
-    onRunQuery();
     variable.setState({ staticOptionsOrder });
+    onRunQuery();
   };
 
   return (
